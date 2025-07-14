@@ -8,15 +8,23 @@ def get_valid_age():
     attempts = 0
     
     while attempts < max_attempts:
-            age_input = input("Please enter your age: ")
+        age_input = input("Please enter your age: ")
+        try:
             age = int(age_input)
 
             # this is a nice place to check and raise any for errors...
-
+            if age <= 0:
+                print('age cant be less than/equal 0')
+                attempts += 1
+                continue
             return age
             
             # here is a good place to catch errors...
-
+        except ValueError: 
+            print('invalid input, use a valid int')
+            attempts += 1
+print('max attempts reached, gl bro')
+return None
 
 # Example usage
 print("=== Example 2: User Input Validation ===")
